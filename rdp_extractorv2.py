@@ -25,7 +25,7 @@ def perform_rdp_handshake(target_ip, target_port, output_file):
             ssl_socket = context.wrap_socket(client_socket, server_hostname=target_ip)
 
             # Sniff responses for a short period (e.g., 20 seconds)
-            responses = sniff(count=20, timeout=20, filter=f"host {target_ip} and port {target_port}", session=TLSSession)
+            responses = sniff(count=20, timeout=20, filter=f"host {target_ip} and port {target_port}")
 
             # Write captured responses to the output file
             with open(output_file, 'w') as file:
